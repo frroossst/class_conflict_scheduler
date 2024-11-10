@@ -35,3 +35,12 @@ section = "A3"
 days = ["Monday", "Wednesday"]
 start_time = "13:00"
 end_time = "14:30"
+
+[[schedule]]
+course_code = "CMPT 431"
+course_name = "Computer Networks"
+section = "A1"
+days = ["Tuesday", "Thursday"]
+start_time = "09:00"
+end_time = "10:30"
+

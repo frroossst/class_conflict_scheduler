@@ -2,13 +2,6 @@ from datetime import datetime
 from enum import Enum
 from typing import List
 
-class Schedule:
-
-    def __init__(self):
-        pass
-
-
-
 class Days(Enum):
     MONDAY = 0
     TUESDAY = 1
@@ -31,7 +24,6 @@ class Days(Enum):
         return case.get(self)
 
 class Class:
-
     name: str
     # list of days
     days: List[Enum]
@@ -72,8 +64,3 @@ class Class:
             f"Days: {', '.join(str(day) for day in self.days)}\n"
             f"Time: {self.start_time.strftime('%H:%M')} to {self.end_time.strftime('%H:%M')}"
         )
-
-
-
-c0 = Class("Math", [Days.MONDAY, Days.WEDNESDAY], "10:00", "14:00")
-print(c0)

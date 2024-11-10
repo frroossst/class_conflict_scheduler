@@ -1,34 +1,32 @@
+from typing import List
 import toml
 
-# Load the TOML file
-with open("classes.toml", "r") as f:
-    data = toml.load(f)
+from scheduler import Class, Days
 
-# Access user information
-user = data.get("user", {})
-print(f"User: {user.get('name')} (ID: {user.get('student_id')})")
-print(f"Semester: {user.get('semester')}")
+class Parser:
+    def __init__(self, file: str) -> None:
+        with open(file, "r") as f:
+            self.data = toml.load(f)
 
-# Access class preferences
-preferences = data.get("preferences", {}).get("desired_classes", [])
-print("\nDesired Classes:")
-for course in preferences:
-    print(f" - {course}")
+    def parse(self) -> List[Class]:
+        class_list = []
+        for course in self.data.get("schedule", []):
+            name = course.get("course_name")
+            days = self.convert_days(course.get("days", []))
+            start_time = course.get("start_time")
+            end_time = course.get("end_time")
+            if name and days and start_time and end_time:
+                class_list.append(Class(name, days, start_time, end_time))
+        return class_list
 
-# Access the schedule of available classes
-print("\nClass Schedule:")
-schedule = data.get("schedule", [])
-for class_info in schedule:
-    course_code = class_info.get("course_code")
-    course_name = class_info.get("course_name")
-    section = class_info.get("section")
-    days = ", ".join(class_info.get("days", []))
-    start_time = class_info.get("start_time")
-    end_time = class_info.get("end_time")
-
-    print(f"{course_code} - {course_name} (Section {section})")
-    print(f"  Days: {days}")
-    print(f"  Time: {start_time} to {end_time}")
-    print()
-
-
+    def convert_days(self, days: List[str]) -> List[Days]:
+        day_mapping = {
+            "Monday": Days.MONDAY,
+            "Tuesday": Days.TUESDAY,
+            "Wednesday": Days.WEDNESDAY,
+            "Thursday": Days.THURSDAY,
+            "Friday": Days.FRIDAY,
+            "Saturday": Days.SATURDAY,
+            "Sunday": Days.SUNDAY
+        }
+        return [day_mapping[day] for day in days if day in day_mapping]
