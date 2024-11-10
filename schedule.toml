@@ -1,6 +1,7 @@
 # Desired classes with preferences
 [preferences]
-desired_classes = ["CMPT 332", "PHYS 212", "MATH 223"]
+classes_taken = ["CMPT 332", "PHYS 212", "MATH 223"]
+classes_wanted = ["CMPT 431"]
 
 # Schedule of available classes
 # Each course can be represented as a nested table for better organization
