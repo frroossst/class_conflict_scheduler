@@ -21,7 +21,9 @@ class Days(Enum):
             Days.SATURDAY: "Sat",
             Days.SUNDAY: "Sun"
         }
-        return case.get(self)
+        if day := case.get(self):
+            return day
+        raise ValueError("Invalid day")
 
 class Class:
     name: str
