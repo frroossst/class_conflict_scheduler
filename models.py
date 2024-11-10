@@ -68,12 +68,7 @@ class Class:
         )
 
     def pretty(self) -> str:
-        BOLD = "\033[1m\033[37m"
         ITALICS = "\033[3m"
-        YELLOW = "\033[33m"
-        CYAN = "\033[36m"
-        RED = "\033[31m"
-        GREEN = "\033[32m"
         RESET = "\033[0m"
 
         """
