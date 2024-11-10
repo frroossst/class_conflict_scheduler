@@ -66,3 +66,24 @@ class Class:
             f"Days: {', '.join(str(day) for day in self.days)}\n"
             f"Time: {self.start_time.strftime('%H:%M')} to {self.end_time.strftime('%H:%M')}"
         )
+
+    def pretty(self) -> str:
+        BOLD = "\033[1m\033[37m"
+        ITALICS = "\033[3m"
+        YELLOW = "\033[33m"
+        CYAN = "\033[36m"
+        RED = "\033[31m"
+        GREEN = "\033[32m"
+        RESET = "\033[0m"
+
+        """
+        CLASS NAME (in cyan)
+            Days: Mon, Tue, Wed (in italics)
+            Time: 09:00 to 10:00
+        """
+        
+        return (
+            f"{self.name}\n"
+            f"\t{ITALICS}{', '.join(str(day) for day in self.days)}{RESET}\n"
+            f"\t{self.start_time.strftime('%H:%M')} to {self.end_time.strftime('%H:%M')}"
+        )

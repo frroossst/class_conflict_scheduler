@@ -35,13 +35,35 @@ class Scheduler:
             return True
         return False
 
-    def generate_report(self):
+    def report(self):
         """Generate a conflict report for each wanted class."""
+
+        # ANSI escape codes for colors
+        YELLOW = "\033[33m"
+        CYAN = "\033[36m"
+        BOLD = "\033[1m\033[37m"
+        RED = "\033[31m"
+        GREEN = "\033[32m"
+        RESET = "\033[0m"
+
         for wanted_class in self.wanted_classes:
             conflicts = self.conflict_graph.get(wanted_class, [])
-            print(f"Wishing to take {wanted_class.name} requires {len(conflicts)} drops.")
-            if conflicts:
-                print(f"Classes to drop: {', '.join([conflict.name for conflict in conflicts])}")
-            else:
-                print("No conflicts, no drops required.")
+            drop_count = len(conflicts)
+
+            # Print class name in yellow
+            print(f"{CYAN}{wanted_class.name}{RESET} requires", end=" ")
+
+            if drop_count > 0:
+                # Print the number of drops in red if drops exist
+                print(f"{RED}{drop_count}{RESET} drops.")
+                print(f"{BOLD}-{RESET} {', '.join([YELLOW + conflict.name + RESET for conflict in conflicts])}{RESET}")
+            elif drop_count == 0:
+                # If no drops, print in green
+                print(f"{GREEN}0{RESET} drops required.")
+
+            # If there are no conflicts, print a green message
+            if not conflicts:
+                print(f"{BOLD}No conflicts, no drops required.{RESET}")
+
+            print()
 
