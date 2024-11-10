@@ -17,7 +17,7 @@ class Parser:
 
         # Parse schedule and categorize based on preferences
         for course in self.data.get("schedule", []):
-            name = course.get("course_code").strip()
+            name = course.get("code").strip()
             days = self.convert_days(course.get("days", []))
             start_time = course.get("start_time")
             end_time = course.get("end_time")

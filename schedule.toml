@@ -7,40 +7,40 @@ classes_wanted = ["CMPT 431", "CMPT 342"]
 # Each course can be represented as a nested table for better organization
 
 [[schedule]]
-course_code = "CMPT 332"
-course_name = "Operating Systems"
+code = "CMPT 332"
+name = "Operating Systems"
 section = "A1"
 days = ["Monday", "Wednesday", "Friday"]
 start_time = "09:00"
 end_time = "10:00"
 
 [[schedule]]
-course_code = "CMPT 342"
-course_name = "Operating Systems"
+code = "CMPT 342"
+name = "Operating Systems"
 section = "A1"
 days = ["Monday", "Wednesday", "Friday"]
 start_time = "09:00"
 end_time = "10:00"
 
 [[schedule]]
-course_code = "PHYS 212"
-course_name = "Electricity and Magnetism"
+code = "PHYS 212"
+name = "Electricity and Magnetism"
 section = "B2"
 days = ["Tuesday", "Thursday"]
 start_time = "11:00"
 end_time = "12:30"
 
 [[schedule]]
-course_code = "MATH 223"
-course_name = "Calculus III"
+code = "MATH 223"
+name = "Calculus III"
 section = "A3"
 days = ["Monday", "Wednesday"]
 start_time = "13:00"
 end_time = "14:30"
 
 [[schedule]]
-course_code = "CMPT 431"
-course_name = "Computer Networks"
+code = "CMPT 431"
+name = "Computer Networks"
 section = "A1"
 days = ["Tuesday", "Thursday"]
 start_time = "09:00"
