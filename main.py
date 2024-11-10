@@ -1,5 +1,5 @@
 from parser import Parser
-from scheduler import Schedule
+from scheduler import Scheduler
 
 
 p = Parser("schedule.toml")
@@ -11,3 +11,6 @@ print("===")
 print("[WANTED]")
 [print(str(c)) for c in c["wanted_classes"]]
 print("===")
+
+s = Scheduler(c["taken_classes"], c["wanted_classes"])
+s.generate_report()

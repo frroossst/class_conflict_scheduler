@@ -1,13 +1,21 @@
 # Desired classes with preferences
 [preferences]
 classes_taken = ["CMPT 332", "PHYS 212", "MATH 223"]
-classes_wanted = ["CMPT 431"]
+classes_wanted = ["CMPT 431", "CMPT 342"]
 
 # Schedule of available classes
 # Each course can be represented as a nested table for better organization
 
 [[schedule]]
 course_code = "CMPT 332"
+course_name = "Operating Systems"
+section = "A1"
+days = ["Monday", "Wednesday", "Friday"]
+start_time = "09:00"
+end_time = "10:00"
+
+[[schedule]]
+course_code = "CMPT 342"
 course_name = "Operating Systems"
 section = "A1"
 days = ["Monday", "Wednesday", "Friday"]
