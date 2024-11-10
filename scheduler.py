@@ -9,7 +9,7 @@ class Scheduler:
     def __init__(self, taken_classes: List['Class'], wanted_classes: List['Class']):
         self.taken_classes = taken_classes
         self.wanted_classes = wanted_classes
-        self.conflict_graph = {}
+        self.conflict_graph: dict['Class', List['Class']] = {}
 
         # Build the conflict graph based on taken and wanted classes
         self.build_conflict_graph()
@@ -44,3 +44,4 @@ class Scheduler:
                 print(f"Classes to drop: {', '.join([conflict.name for conflict in conflicts])}")
             else:
                 print("No conflicts, no drops required.")
+
