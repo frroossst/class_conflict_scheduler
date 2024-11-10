@@ -1,0 +1,37 @@
+# User's class schedule preferences
+
+[user]
+name = "Adhyan"
+student_id = 11313929
+semester = "Fall 2024"
+
+# Desired classes with preferences
+[preferences]
+desired_classes = ["CMPT 332", "PHYS 212", "MATH 223"]
+
+# Schedule of available classes
+# Each course can be represented as a nested table for better organization
+
+[[schedule]]
+course_code = "CMPT 332"
+course_name = "Operating Systems"
+section = "A1"
+days = ["Monday", "Wednesday", "Friday"]
+start_time = "09:00"
+end_time = "10:00"
+
+[[schedule]]
+course_code = "PHYS 212"
+course_name = "Electricity and Magnetism"
+section = "B2"
+days = ["Tuesday", "Thursday"]
+start_time = "11:00"
+end_time = "12:30"
+
+[[schedule]]
+course_code = "MATH 223"
+course_name = "Calculus III"
+section = "A3"
+days = ["Monday", "Wednesday"]
+start_time = "13:00"
+end_time = "14:30"
