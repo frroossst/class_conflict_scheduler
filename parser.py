@@ -1,7 +1,6 @@
+from models import Class, Days
 from typing import List
 import toml
-
-from scheduler import Class, Days
 
 class Parser:
     def __init__(self, file: str) -> None:
