@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from scheduler import Scheduler
 from parser import Parser
 
