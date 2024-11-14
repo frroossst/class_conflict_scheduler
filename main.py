@@ -17,15 +17,15 @@ RESET = "\033[0m"
 desc = "select the best class according to your schedule"
 clap = argparse.ArgumentParser(description=desc)
 clap.add_argument("file", type=str, help="path to the schedule TOML file")
-args = clap.parse_args()
+args: argparse.Namespace = clap.parse_args()
 
-path = args.file
+path: str = args.file
 if not os.path.exists(path):
     raise RuntimeError(f"{BOLD}{RED}[ERROR]{RESET} {path}: no such file exists")
 elif not path.endswith(".toml"):
     raise RuntimeError(f"{BOLD}{RED}[ERROR]{RESET} {path}: must be a TOML file")
 
-p = Parser(path)
+p: Parser = Parser(path)
 c = p.parse()
 
 print(f"{BOLD}============== [SCHEDULER] =============={RESET}")
@@ -38,6 +38,6 @@ print(f"{BOLD}{YELLOW}[WANTED]{RESET}")
 print()
 print(f"{BOLD}========================================={RESET}")
 
-s = Scheduler(c["taken_classes"], c["wanted_classes"])
+s: Scheduler = Scheduler(c["taken_classes"], c["wanted_classes"])
 s.report()
 
